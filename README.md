@@ -73,9 +73,9 @@ Here's a blank template to get started:
 
 ### Built With
 
-* [React](React)
-* [MongoDb](MongoDb)
-* [Node](Node)
+* [React]()
+* [MongoDb]()
+* [Node]()
 
 
 
@@ -117,8 +117,11 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/github_username/repo_name/issues) for a list of proposed features (and known issues).
-
+1. Make Mongoose Schema for the fantasy players
+2. Connect to Yahoo Sports API
+3. Make an algorithm to rank the players
+4. React, make front page at least
+5. Authentication
 
 
 <!-- CONTRIBUTING -->
