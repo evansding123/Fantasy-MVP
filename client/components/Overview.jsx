@@ -16,16 +16,20 @@ const Overview = (props) => {
   const [stealMulti, setSteal] = useState(1);
   const [blockMulti, setBlock] = useState(1);
   const [TOMulti, setTO] = useState(-1);
+  const [FGAMulti, setFGA] = useState(-0.5);
+  const [FTAMulti, setFTA] = useState(-0.5);
 
   const array = [];
   const nameToIndex = {
+    FGA: 8,
+    FTA: 14,
+    '3PM': 9,
     points: 1,
+    rebounds: 17,
     assists: 2,
-    turnovers: 3,
     steals: 4,
     blocks: 5,
-    '3PM': 9,
-    rebounds: 17
+    turnovers: 3
   }
 
   for(var keys in nameToIndex) {
@@ -56,11 +60,17 @@ const Overview = (props) => {
       setBlock(value);
     } else if(name === 'turnovers') {
       setTO(value);
+    } else if(name === 'FGA') {
+      setFGA(value);
+    } else if(name === 'FTA') {
+      setFTA(value);
     }
   }
 
 
-
+  const handleAdd = (obj) => {
+    props.callback(obj);
+  }
 
   return(
     <div>
@@ -72,16 +82,16 @@ const Overview = (props) => {
       <Button statIndex = {nameToIndex.steals} statSort = {'steals'} callback = {handleClick}/>
       <Button statIndex = {nameToIndex.blocks} statSort = {'blocks'} callback = {handleClick}/>
       <Button statIndex = {nameToIndex.turnovers} statSort = {'turnovers'} callback = {handleClick}/>
-      <Form score = {1} name = 'points' callback = {changeScore}/>
-      <Form score = {1} name = '3PM' callback = {changeScore}/>
-      <Form score = {1} name = 'rebounds' callback = {changeScore}/>
-      <Form score = {1} name = 'assists' callback = {changeScore}/>
-      <Form score = {1} name = 'steals' callback = {changeScore}/>
-      <Form score = {1} name = 'blocks' callback = {changeScore}/>
+      {array.map((item, index) => {
+        return(
+          <Form score = {1} name = {item} callback = {changeScore} key = {index}/>
+        )
+      })}
 
     <table className = 'players'>
     <thead>
       <tr className = 'row'>
+        <th></th>
         <th>Rank</th>
         <th>Player</th>
         <th>Position</th>
@@ -102,13 +112,17 @@ const Overview = (props) => {
     <tbody>
       {props.data.categories[nameToIndex[statSort]].ranks.map((item, index) => {
         return (
-          <Table info = {item} key = {index} method = {method} pointMulti = {pointMulti}
+          <Table info = {item} key = {index} method = {method}
+          FGAMulti = {FGAMulti}
+          FTAMulti = {FTAMulti}
+          pointMulti = {pointMulti}
           threePtMulti = {threePtMulti}
           rebMulti = {rebMulti}
           aMulti = {aMulti}
           stealMulti = {stealMulti}
           blockMulti = {blockMulti}
           TOMulti = {TOMulti}
+          callback = {handleAdd}
           />
         )
       })}

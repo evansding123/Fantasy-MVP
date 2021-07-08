@@ -1,5 +1,6 @@
 const axios = require('axios');
 const TOKEN = require('../config');
+const model = require('./model.js');
 
 const getLeaders = async (date = '2020') => {
   const option = {
@@ -17,6 +18,17 @@ const getLeaders = async (date = '2020') => {
 
 }
 
+const postPlayer  = async (array) => {
+  try {
+    const response = await model.post(array);
+    console.log(response);
+    return response;
+  } catch(err) {
+    console.log(err);
+    throw new Error();
+  }
+}
 module.exports = {
-  getLeaders : getLeaders
+  getLeaders : getLeaders,
+  postPlayer: postPlayer
 }

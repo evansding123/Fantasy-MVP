@@ -16,10 +16,15 @@ class App extends React.Component {
     super(props);
     this.state = {
       data: {},
-      loaded: false
+      loaded: false,
+      stat: 'points',
+      team: [],
+      teamCollection: []
     }
 
     this.renderPage = this.renderPage.bind(this);
+    this.handleAdd = this.handleAdd.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -41,6 +46,25 @@ class App extends React.Component {
   }
 
 
+  handleAdd(obj) {
+    this.state.team.push(obj);
+    this.setState({team: [...this.state.team]})
+  }
+
+  handleClick() {
+    axios.post('/teams/post', {
+      data: this.state.team
+    })
+    .then((response) => {
+      console.log(response);
+      //this.setState({team: []});
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+  }
+
+
   renderPage() {
     return (
       <div>
@@ -52,10 +76,11 @@ class App extends React.Component {
         </div>
         <Switch>
           <Route path="/teams">
-            <Teams />
+            <Teams team = {this.state.team}/>
+            <button onClick = {this.handleClick}>Save</button>
           </Route>
           <Route path="/">
-            <Overview data = {this.state.data}/>
+            <Overview data = {this.state.data} callback = {this.handleAdd}/>
           </Route>
         </Switch>
       </Router>

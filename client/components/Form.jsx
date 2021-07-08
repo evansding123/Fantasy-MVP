@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 const Form = (props) => {
 
 
-const [amount, setAmount] = useState(0);
+const [amount, setAmount] = useState('');
 
 // useEffect(() => {
 //   setAmount(props.score);
@@ -23,7 +23,7 @@ const handleChange = () => {
 }
 
   return (
-    <form>
+    <form className = 'box'>
       <input type = 'number' value = {amount} onChange = {handleChange}></input>
       {/* <input type = 'submit' value = 'submit'></input> */}
       <label>{props.name}</label>
