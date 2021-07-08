@@ -77,7 +77,7 @@ class App extends React.Component {
         <Switch>
           <Route path="/teams">
             <Teams team = {this.state.team}/>
-            <button onClick = {this.handleClick}>Save</button>
+            <button onClick = {this.handleClick}>Add</button>
           </Route>
           <Route path="/">
             <Overview data = {this.state.data} callback = {this.handleAdd}/>

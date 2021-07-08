@@ -20,16 +20,26 @@ const Teams = (props) => {
     })
   }, []);
 
+  if(currentTeam.length === 0 && props.team.length === 0) {
+    return (
+      <div>Add a Team!</div>
+    );
+  }
+
 
   return (
     <div>
-    <div>Teams</div>
+    <h4>Saved Teams</h4>
     <div className = 'players'>
         {currentTeam.map((item) => {
           return(
             <TeamTable info = {item.team} key = {item.id}/>
           );
         })}
+    </div>
+    <div>
+      <h4>Current Team</h4>
+      <TeamTable info = {props.team} />
     </div>
     </div>
   )
