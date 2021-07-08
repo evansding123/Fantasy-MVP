@@ -8,14 +8,15 @@ const PORT = 3000 || process.env.PORT;
 app.use(express.json());
 app.use(express.static('./public'));
 
-app.get('/players/leaders', async (res, req) => {
+app.get('/players/leaders', async (req, res) => {
+
   try {
-    const results = await controller.getSRAPI();
+    //console.log(req.query.year);
+    const results = await controller.getLeaders(req.query.year);
     res.status(200).send(results);
-  } catch (err) {
+  } catch(err) {
     res.sendStatus(404);
   }
-
 })
 
 
