@@ -31,9 +31,9 @@ const Teams = (props) => {
     <div>
     <h4>Saved Teams</h4>
     <div className = 'players'>
-        {currentTeam.map((item) => {
+        {currentTeam.map((item, index) => {
           return(
-            <TeamTable info = {item.team} key = {item.id}/>
+            <TeamTable info = {item.team} key = {item.id} index = {index}/>
           );
         })}
     </div>

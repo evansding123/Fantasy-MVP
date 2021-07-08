@@ -2,8 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import Table from './Table.jsx';
 import DropDown from './DropDown.jsx';
-import Button from './Button.jsx';
+import ClickButton from './ClickButton.jsx';
 import Form from './Form.jsx';
+import Button from '@material-ui/core/Button';
 
 const Overview = (props) => {
 
@@ -75,13 +76,13 @@ const Overview = (props) => {
   return(
     <div>
       <DropDown callback = {handleChange}/>
-      <Button statIndex = {nameToIndex.points} statSort = {'points'} callback = {handleClick}/>
-      <Button statIndex = {nameToIndex['3PM']} statSort = {'3PM'} callback = {handleClick}/>
-      <Button statIndex = {nameToIndex.rebounds} statSort = {'rebounds'} callback = {handleClick}/>
-      <Button statIndex = {nameToIndex.assists} statSort = {'assists'} callback = {handleClick}/>
-      <Button statIndex = {nameToIndex.steals} statSort = {'steals'} callback = {handleClick}/>
-      <Button statIndex = {nameToIndex.blocks} statSort = {'blocks'} callback = {handleClick}/>
-      <Button statIndex = {nameToIndex.turnovers} statSort = {'turnovers'} callback = {handleClick}/>
+      <ClickButton statIndex = {nameToIndex.points} statSort = {'points'} callback = {handleClick}/>
+      <ClickButton statIndex = {nameToIndex['3PM']} statSort = {'3PM'} callback = {handleClick}/>
+      <ClickButton statIndex = {nameToIndex.rebounds} statSort = {'rebounds'} callback = {handleClick}/>
+      <ClickButton statIndex = {nameToIndex.assists} statSort = {'assists'} callback = {handleClick}/>
+      <ClickButton statIndex = {nameToIndex.steals} statSort = {'steals'} callback = {handleClick}/>
+      <ClickButton statIndex = {nameToIndex.blocks} statSort = {'blocks'} callback = {handleClick}/>
+      <ClickButton statIndex = {nameToIndex.turnovers} statSort = {'turnovers'} callback = {handleClick}/>
       {array.map((item, index) => {
         return(
           <Form score = {1} name = {item} callback = {changeScore} key = {index}/>

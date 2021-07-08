@@ -23,6 +23,8 @@ const TeamTable = (props) => {
 
 
   return(
+  <>
+  <h5>{`Team ${(props.index + 1) || 'Current'}`}</h5>
   <table className = 'teams'>
     <thead>
         <tr className = 'row'>
@@ -67,6 +69,7 @@ const TeamTable = (props) => {
         <td>{Math.round((sums.FP)* 1000) / 1000}</td>
       </tbody>
   </table>
+  </>
 
   )
 
