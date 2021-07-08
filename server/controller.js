@@ -28,7 +28,24 @@ const postPlayer  = async (array) => {
     throw new Error();
   }
 }
+
+const getTeam = async () => {
+  try {
+    const response = await model.getAll();
+    console.log(response);
+    return response;
+  } catch(err) {
+    console.log(err);
+    throw new Error();
+  }
+}
+
+
 module.exports = {
   getLeaders : getLeaders,
-  postPlayer: postPlayer
+  postPlayer: postPlayer,
+  getTeam: getTeam
+
 }
+
+

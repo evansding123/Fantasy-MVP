@@ -25,8 +25,15 @@ const testTeam = new db.Team({
 })
 
 module.exports = {
-  getAll: () => {
-    db.find({})
+  getAll: async () => {
+    try {
+      const result = await db.Team.find();
+      return result;
+    } catch (err) {
+      console.log(err);
+      throw new Error();
+    }
+
   },
 
   post: (array) => {

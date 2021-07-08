@@ -17,6 +17,8 @@ const playerSchema = new mongoose.Schema({
   TO: Number,
   steals: Number,
   blocks: Number,
+  id: String,
+  FP: Number
 
 });
 

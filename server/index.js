@@ -19,9 +19,18 @@ app.get('/players/leaders', async (req, res) => {
   }
 })
 
+app.get('/teams/get', async (req, res) => {
+  try {
+    const results = await controller.getTeam();
+    res.status(200).send(results);
+  } catch(err) {
+    res.sendStatus(404);
+  }
+})
+
 app.post('/teams/post', async (req, res) => {
   try {
-    console.log(req.body)
+    //console.log(req.body)
     const results = await controller.postPlayer(req.body.data);
     res.status(201).send(results);
   } catch(err) {
