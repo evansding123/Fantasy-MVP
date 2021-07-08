@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 
-const Button = (props) => {
+const ClickButton = (props) => {
 
   const handleClick = ()=> {
     props.callback(event.target.value);
@@ -15,4 +15,4 @@ const Button = (props) => {
 }
 
 
-export default Button;
+export default ClickButton;
