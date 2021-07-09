@@ -20,7 +20,7 @@ const DropDown = (props) => {
   const classes = useStyles();
 
   const handleChange = (event) => {
-
+    console.log(event.target)
     props.callback(event.target.value);
   }
 
@@ -28,7 +28,7 @@ const DropDown = (props) => {
 
     <FormControl className={classes.formControl}>
       <InputLabel>Average</InputLabel>
-      <Select name = {props.name} id = {props.id} onChange = {handleChange}>
+      <Select value = {props.name} defaultValue = 'average' id = {props.id} onChange = {handleChange}>
         <MenuItem value="average" >Average</MenuItem>
         <MenuItem value="total">Total</MenuItem>
       </Select>

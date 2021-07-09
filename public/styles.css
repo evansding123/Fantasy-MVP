@@ -7,3 +7,21 @@ body {
 .homeLink {
   margin-bottom: 20px;
 }
+
+.forms {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 2%;
+
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  margin-right: 0%;
+
+}
+
+.input {
+  width: 50%;
+}

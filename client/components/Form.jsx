@@ -34,9 +34,10 @@ const handleChange = () => {
 
   return (
     <form className = 'box'>
-      <input type = 'number' value = {amount} onChange = {handleChange}></input>
+      {/* <label>{props.name}</label> */}
+      <TextField className = 'input' label = {props.name} type = 'number' value = {amount} onChange = {handleChange}></TextField>
       {/* <input type = 'submit' value = 'submit'></input> */}
-      <label>{props.name}</label>
+
     </form>
   )
 

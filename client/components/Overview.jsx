@@ -84,12 +84,13 @@ const Overview = (props) => {
       <ClickButton statIndex = {nameToIndex.steals} statSort = {'steals'} callback = {handleClick}/>
       <ClickButton statIndex = {nameToIndex.blocks} statSort = {'blocks'} callback = {handleClick}/>
       <ClickButton statIndex = {nameToIndex.turnovers} statSort = {'turnovers'} callback = {handleClick}/>
-
+      <div className = 'forms'>
       {array.map((item, index) => {
         return(
           <Form score = {1} name = {item} callback = {changeScore} key = {index}/>
         )
       })}
+      </div>
 
 
     <table className = 'players'>
