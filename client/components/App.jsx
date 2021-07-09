@@ -6,9 +6,12 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 
 import Teams from './Teams.jsx';
 import Overview from './Overview.jsx';
+
 
 
 class App extends React.Component {
@@ -69,15 +72,16 @@ class App extends React.Component {
     return (
       <div>
       <Router>
-        <div>
-          <Link to='/'>Home</Link>
-          <Link to='/teams'>Teams</Link>
+        <div className = 'homeLink'>
+          <Link to='/' color = 'inherit'>Home</Link>
+          <br></br>
+          <Link to='/teams' color = 'primary'>Teams</Link>
           {/* <Link to='/players'>Players</Link> */}
         </div>
         <Switch>
           <Route path="/teams">
             <Teams team = {this.state.team}/>
-            <button onClick = {this.handleClick}>Add</button>
+            <Button variant = 'outlined' color = 'primary' onClick = {this.handleClick}>Add</Button>
           </Route>
           <Route path="/">
             <Overview data = {this.state.data} callback = {this.handleAdd}/>

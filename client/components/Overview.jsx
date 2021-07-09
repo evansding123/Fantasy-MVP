@@ -5,6 +5,8 @@ import DropDown from './DropDown.jsx';
 import ClickButton from './ClickButton.jsx';
 import Form from './Form.jsx';
 
+
+
 const Overview = (props) => {
 
   const [method, setMethod] = useState('average');
@@ -74,7 +76,7 @@ const Overview = (props) => {
 
   return(
     <div>
-      <DropDown callback = {handleChange}/>
+       <DropDown callback = {handleChange}/>
       <ClickButton statIndex = {nameToIndex.points} statSort = {'points'} callback = {handleClick}/>
       <ClickButton statIndex = {nameToIndex['3PM']} statSort = {'3PM'} callback = {handleClick}/>
       <ClickButton statIndex = {nameToIndex.rebounds} statSort = {'rebounds'} callback = {handleClick}/>
@@ -82,11 +84,13 @@ const Overview = (props) => {
       <ClickButton statIndex = {nameToIndex.steals} statSort = {'steals'} callback = {handleClick}/>
       <ClickButton statIndex = {nameToIndex.blocks} statSort = {'blocks'} callback = {handleClick}/>
       <ClickButton statIndex = {nameToIndex.turnovers} statSort = {'turnovers'} callback = {handleClick}/>
+
       {array.map((item, index) => {
         return(
           <Form score = {1} name = {item} callback = {changeScore} key = {index}/>
         )
       })}
+
 
     <table className = 'players'>
     <thead>

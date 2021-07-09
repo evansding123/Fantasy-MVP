@@ -1,20 +1,39 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormControl from '@material-ui/core/FormControl';
+
+const useStyles = makeStyles((theme) => ({
+  formControl: {
+    margin: theme.spacing(-2, 1, 1, 1),
+    minWidth: 120,
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(1),
+  },
+}));
 
 const DropDown = (props) => {
+  const classes = useStyles();
 
-  const handleChange = () => {
+  const handleChange = (event) => {
+
     props.callback(event.target.value);
   }
 
   return(
-    <>
-    {/* <label htmlFor="method">Average or Total:</label> */}
-      <select name = {props.name} id = {props.id} onChange = {handleChange}>
-        <option value="average" >Average</option>
-        <option value="total">Total</option>
-      </select>
-    </>
+
+    <FormControl className={classes.formControl}>
+      <InputLabel>Average</InputLabel>
+      <Select name = {props.name} id = {props.id} onChange = {handleChange}>
+        <MenuItem value="average" >Average</MenuItem>
+        <MenuItem value="total">Total</MenuItem>
+      </Select>
+      </FormControl>
+
  );
 
 

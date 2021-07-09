@@ -1,0 +1,9 @@
+body {
+  max-width: 1000px;
+  margin: auto;
+  font-family: 'Roboto', sans-serif;
+}
+
+.homeLink {
+  margin-bottom: 20px;
+}
