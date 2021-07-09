@@ -1,9 +1,19 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
-import Table from './Table.jsx';
+import PlayerTable from './PlayerTable.jsx';
 import DropDown from './DropDown.jsx';
 import ClickButton from './ClickButton.jsx';
 import Form from './Form.jsx';
+
+import { makeStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+
 
 
 
@@ -84,6 +94,7 @@ const Overview = (props) => {
       <ClickButton statIndex = {nameToIndex.steals} statSort = {'steals'} callback = {handleClick}/>
       <ClickButton statIndex = {nameToIndex.blocks} statSort = {'blocks'} callback = {handleClick}/>
       <ClickButton statIndex = {nameToIndex.turnovers} statSort = {'turnovers'} callback = {handleClick}/>
+      <h4>Modify Rating</h4>
       <div className = 'forms'>
       {array.map((item, index) => {
         return(
@@ -92,47 +103,48 @@ const Overview = (props) => {
       })}
       </div>
 
+    <TableContainer component = {Paper}>
+      <Table className = 'players' >
+      <TableHead>
+        <TableRow className = 'row'>
+          <TableCell></TableCell>
+          <TableCell>Rank</TableCell>
+          <TableCell>Player</TableCell>
+          <TableCell>Position</TableCell>
+          <TableCell>Team</TableCell>
+          <TableCell>FG</TableCell>
+          <TableCell>FT</TableCell>
+          <TableCell>3PM</TableCell>
+          <TableCell>PTS</TableCell>
+          <TableCell>REB</TableCell>
+          <TableCell>AST</TableCell>
+          <TableCell>STL</TableCell>
+          <TableCell>BLK</TableCell>
+          <TableCell>TO</TableCell>
+          <TableCell>Rating</TableCell>
 
-    <table className = 'players'>
-    <thead>
-      <tr className = 'row'>
-        <th></th>
-        <th>Rank</th>
-        <th>Player</th>
-        <th>Position</th>
-        <th>Team</th>
-        <th>FG</th>
-        <th>FT</th>
-        <th>3PM</th>
-        <th>PTS</th>
-        <th>REB</th>
-        <th>AST</th>
-        <th>STL</th>
-        <th>BLK</th>
-        <th>TO</th>
-        <th>Fantasy Pts</th>
-
-      </tr>
-    </thead>
-    <tbody>
-      {props.data.categories[nameToIndex[statSort]].ranks.map((item, index) => {
-        return (
-          <Table info = {item} key = {index} method = {method}
-          FGAMulti = {FGAMulti}
-          FTAMulti = {FTAMulti}
-          pointMulti = {pointMulti}
-          threePtMulti = {threePtMulti}
-          rebMulti = {rebMulti}
-          aMulti = {aMulti}
-          stealMulti = {stealMulti}
-          blockMulti = {blockMulti}
-          TOMulti = {TOMulti}
-          callback = {handleAdd}
-          />
-        )
-      })}
-    </tbody>
-    </table>
+        </TableRow>
+      </TableHead>
+      <TableBody>
+        {props.data.categories[nameToIndex[statSort]].ranks.map((item, index) => {
+          return (
+            <PlayerTable info = {item} key = {index} method = {method}
+            FGAMulti = {FGAMulti}
+            FTAMulti = {FTAMulti}
+            pointMulti = {pointMulti}
+            threePtMulti = {threePtMulti}
+            rebMulti = {rebMulti}
+            aMulti = {aMulti}
+            stealMulti = {stealMulti}
+            blockMulti = {blockMulti}
+            TOMulti = {TOMulti}
+            callback = {handleAdd}
+            />
+          )
+        })}
+      </TableBody>
+      </Table>
+    </TableContainer>
     </div>
   )
 
