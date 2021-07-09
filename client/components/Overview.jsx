@@ -106,7 +106,7 @@ const Overview = (props) => {
     <TableContainer component = {Paper}>
       <Table className = 'players' >
       <TableHead>
-        <TableRow className = 'row'>
+        <TableRow className = 'TableRow'>
           <TableCell></TableCell>
           <TableCell>Rank</TableCell>
           <TableCell>Player</TableCell>
@@ -125,7 +125,7 @@ const Overview = (props) => {
 
         </TableRow>
       </TableHead>
-      <TableBody>
+      <TableBody className = 'TableBody'>
         {props.data.categories[nameToIndex[statSort]].ranks.map((item, index) => {
           return (
             <PlayerTable info = {item} key = {index} method = {method}
