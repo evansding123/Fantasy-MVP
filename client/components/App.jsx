@@ -28,7 +28,8 @@ class App extends React.Component {
       loaded: false,
       stat: 'points',
       team: [],
-      teamCollection: []
+      teamCollection: [],
+      id: ''
     }
 
     this.renderPage = this.renderPage.bind(this);
@@ -66,7 +67,7 @@ class App extends React.Component {
     })
     .then((response) => {
       console.log(response);
-      //this.setState({team: []});
+      this.setState({id: response.data.id});
     })
     .catch((err) => {
       console.log(err);
@@ -89,7 +90,7 @@ class App extends React.Component {
         </AppBar>
         <Switch>
           <Route path="/teams">
-            <Teams team = {this.state.team}/>
+            <Teams team = {this.state.team} id = {this.state.id}/>
             <Button variant = 'outlined' color = 'primary' onClick = {this.handleClick}>Add</Button>
           </Route>
           <Route path="/">

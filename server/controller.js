@@ -40,11 +40,23 @@ const getTeam = async () => {
   }
 }
 
+const deleteTeam = async (id) => {
+  try {
+    console.log('id in controller', id);
+    const response = await model.delete(id)
+    return response;
+  } catch(err) {
+    console.log(err);
+    throw new Error();
+  }
+}
+
 
 module.exports = {
   getLeaders : getLeaders,
   postPlayer: postPlayer,
-  getTeam: getTeam
+  getTeam: getTeam,
+  deleteTeam: deleteTeam
 
 }
 

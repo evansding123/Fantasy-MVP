@@ -29,7 +29,9 @@ const TeamTable = (props) => {
     FTM: 0
   }
 
-
+  const handleClick = () => {
+    props.callback(props.id);
+  }
 
   return(
   <>
@@ -64,7 +66,7 @@ const TeamTable = (props) => {
         </TableBody>
         <TableBody className = 'totalRow'>
           <TableCell>Total</TableCell>
-          <TableCell></TableCell>
+          <TableCell><Button onClick = {handleClick}variant="outlined" color="secondary" size='small' type = 'button'>Delete</Button></TableCell>
           <TableCell>{Math.round((sums.FGM) / (sums.FGA)* 1000) / 1000}</TableCell>
           <TableCell>{Math.round((sums.FTM) / (sums.FTA)* 1000) / 1000}</TableCell>
           <TableCell>{Math.round((sums.threePtsMade)* 1000) / 1000}</TableCell>

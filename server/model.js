@@ -33,21 +33,36 @@ module.exports = {
       console.log(err);
       throw new Error();
     }
+  },
+
+  post: async (array) => {
+    try {
+      let team = new db.Team({
+        team: array
+      })
+      console.log('data in model', team);
+      const result = await team.save();
+      return result;
+    } catch(err) {
+      console.log(err);
+      throw new Error();
+    }
 
   },
 
-  post: (array) => {
-    let team = new db.Team({
-      team: array
-    })
-    team.save(function(err, team) {
-      if(err) {
-        console.log(err);
-      } else {
-        console.log(team);
-      }
-    })
+  delete: async (id) => {
+    try {
+      console.log('id in model', id);
+      let result = await db.Team.deleteOne({
+        _id: id
+      });
+      return result;
+    } catch(err) {
+      console.log(err);
+      throw new Error();
+    }
   }
 }
 
 
+//module.exports.delete('60e7cae68ac3d47addd9ebaf')
