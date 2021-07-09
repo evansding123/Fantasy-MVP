@@ -38,6 +38,16 @@ app.post('/teams/post', async (req, res) => {
   }
 })
 
+app.delete('/teams/delete', async (req, res) => {
+  try {
+    //console.log(req.query)
+    const results = await controller.deleteTeam(req.query.endpoint);
+    res.status(204).send(results);
+  } catch(err) {
+    res.sendStatus(404);
+  }
+})
+
 
 
 

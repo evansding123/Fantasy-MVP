@@ -1,0 +1,61 @@
+body {
+
+
+  font-family: 'Roboto', sans-serif;
+}
+
+.homeLink {
+  /* display: inline-block; */
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.forms {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 1%;
+  margin-top: -2%;
+  margin-bottom: 1%;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  margin-right: 0%;
+
+}
+
+.input {
+  width: 50%;
+  margin-bottom: 20%;
+}
+
+h4 {
+  margin-left: 1%;
+  color:#3f51b5;
+}
+
+.TableRow {
+  background-color: #3f51b542;
+
+}
+
+.totalRow {
+  background-color: #15141600;
+}
+
+.TableBody {
+  background-color: #15141609;
+}
+
+.form {
+  margin-left: 1%;
+}
+
+.menu {
+  margin-right: 2%;
+}
+
+.home {
+  font-size: 2px;
+}
